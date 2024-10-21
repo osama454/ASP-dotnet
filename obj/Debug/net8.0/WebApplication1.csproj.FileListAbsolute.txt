@@ -175,3 +175,4 @@ D:\work\dotnet\MyMvcApp\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net6.0
 D:\work\dotnet\MyMvcApp\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\work\dotnet\MyMvcApp\WebApplication1\obj\Debug\net8.0\WebApplication1.csproj.AssemblyReference.cache
 D:\work\dotnet\MyMvcApp\WebApplication1\obj\Debug\net8.0\WebAppli.7D14BD69.Up2Date
+D:\work\dotnet\MyMvcApp\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json

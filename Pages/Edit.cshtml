@@ -1,147 +1,127 @@
 @page
 @model HealthHive.Data.ApplicationUser
+
 @{
     ViewData["Title"] = "Edit Practitioner";
 }
 
-<div class="row">
-    <div class="container-fluid">
-        <div class="row mb-3">
-            <div class="col-lg-8">
-                <form asp-page="./Index" method="post" enctype="multipart/form-data" id="personal-details-form">
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="Name" class="form-label">
-                                    <strong>Name</strong>
-                                </label>
-                                <input asp-for="Name" class="form-control" />
-                                <span asp-validation-for="Name" class="text-danger"></span> 
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="Surname" class="form-label">
-                                    <strong>Surname</strong>
-                                </label>
-                                <input asp-for="Surname" class="form-control" />
-                                <span asp-validation-for="Surname" class="text-danger"></span>
-                            </div>
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-lg-8">
+            <form asp-page="./Index" method="post" enctype="multipart/form-data" id="personal-details-form">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"><strong>Name</strong></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span> 
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="Title" class="form-label">
-                                    <strong>Title</strong>
-                                </label>
-                                <select asp-for="Title" class="form-select" aria-required="true">
-                                    <option value="" disabled selected>Select</option> 
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Ms">Ms</option>
-                                    <option value="Dr">Dr</option>
-                                    <option value="Prof">Prof</option>
-                                </select>
-                                <span asp-validation-for="Title" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <label class="form-label">Gender:</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" asp-for="Gender" value="Male">
-                                    <label class="form-check-label">Male</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" asp-for="Gender" value="Female">
-                                    <label class="form-check-label">Female</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" asp-for="Gender" value="Other">
-                                    <label class="form-check-label">Other</label>
-                                </div>
-                                <span asp-validation-for="Gender" class="text-danger"></span>
-                            </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="Surname" class="form-label"><strong>Surname</strong></label>
+                            <input asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="DateOfBirth" class="form-label">
-                                    <strong>Date Of Birth</strong>
-                                </label>
-                                <input asp-for="DateOfBirth" class="form-control" type="date" aria-required="true" />
-                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="Ethnicity" class="form-label">
-                                    <strong>Ethnicity</strong>
-                                </label>
-                                <select asp-for="Ethnicity" class="form-select" aria-required="true">
-                                    <option value="" disabled selected>Select</option> 
-                                    <option value="Asian">Asian</option>
-                                    <option value="Black">Black</option>
-                                    <option value="Coloured">Coloured</option>
-                                    <option value="Hispanic">Hispanic</option>
-                                    <option value="White">White</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <span asp-validation-for="Ethnicity" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row"> 
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="IdNumber" class="form-label">
-                                    <strong>ID Number</strong>
-                                </label>
-                                <input asp-for="IdNumber" class="form-control" />
-                                <span asp-validation-for="IdNumber" class="text-danger"></span> 
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="PhoneNumber" class="form-label">
-                                    <strong>Phone Number</strong>
-                                </label>
-                                <input asp-for="PhoneNumber" class="form-control" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-floating mb-3"> 
-                        <select asp-for="SpecialtyId" class="form-select" aria-required="true">
-                            <option value="" disabled selected>Select Specialty</option>
-                            @foreach (var specialization in ViewBag.Specializations)
-                            {
-                                <option value="@specialization.Id">@specialization.Name</option>
-                            }
-                        </select>
-                        <label asp-for="SpecialtyId" class="form-label"></label>
-                        <span asp-validation-for="SpecialtyId" class="text-danger"></span>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label asp-for="AddressLine1" class="form-label">
-                                    <strong>AddressLine1</strong>
-                                </label>
-                                <input asp-for="AddressLine1" class="form-control" />
-                                <span asp-validation-for="AddressLine1" class="text-danger"></span> 
-                            </div>
-                        </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label"><strong>Title</strong></label>
+                            <select asp-for="Title" class="form-select" aria-required="true">
+                                <option value="" disabled selected>Select</option> 
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Prof">Prof</option>
+                            </select>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Gender</strong></label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Gender" value="Male">
+                                <label class="form-check-label">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Gender" value="Female">
+                                <label class="form-check-label">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Gender" value="Other">
+                                <label class="form-check-label">Other</label>
+                            </div>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="DateOfBirth" class="form-label"><strong>Date Of Birth</strong></label>
+                            <input asp-for="DateOfBirth" class="form-control" type="date" aria-required="true" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="Ethnicity" class="form-label"><strong>Ethnicity</strong></label>
+                            <select asp-for="Ethnicity" class="form-select" aria-required="true">
+                                <option value="" disabled selected>Select</option> 
+                                <option value="Asian">Asian</option>
+                                <option value="Black">Black</option>
+                                <option value="Coloured">Coloured</option>
+                                <option value="Hispanic">Hispanic</option>
+                                <option value="White">White</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="Ethnicity" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="IdNumber" class="form-label"><strong>ID Number</strong></label>
+                            <input asp-for="IdNumber" class="form-control" />
+                            <span asp-validation-for="IdNumber" class="text-danger"></span> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label asp-for="PhoneNumber" class="form-label"><strong>Phone Number</strong></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="SpecialtyId" class="form-label"><strong>Specialty</strong></label>
+                    <select asp-for="SpecialtyId" class="form-select" aria-required="true">
+                        <option value="" disabled selected>Select Specialty</option>
+                        @foreach (var specialization in ViewBag.Specializations)
+                        {
+                            <option value="@specialization.Id">@specialization.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="SpecialtyId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AddressLine1" class="form-label"><strong>Address Line 1</strong></label> 
+                    <input asp-for="AddressLine1" class="form-control" />
+                    <span asp-validation-for="AddressLine1" class="text-danger"></span> 
+                </div>
+
+                </form>
         </div>
     </div>
+</div>
