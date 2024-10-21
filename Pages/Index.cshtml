@@ -1,0 +1,119 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Edit Practitioner"; // Assign the title here
+}
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Registration Form</title>
+    <link href="Login.css" rel="stylesheet" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="main" style="padding-top:7vh; background-color: #F6F6EF; height: 100vh;"> <!-- 7vh accounts for master page top-bar -->
+  <form id="registrationForm" runat="server">
+    <div>
+      <label for="username">Username:</label>
+       <asp:TextBox ID="username" runat="server"/>
+    </div>
+    <div>
+      <label for="firstName">First Name:</label>
+      <asp:TextBox id="firstName" runat="server"/>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <asp:TextBox id="lastName" runat="server"/>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <asp:TextBox ID="email" runat="server"/>
+    </div>
+    <div>
+      <label>Gender:</label>
+      <asp:RadioButtonList ID="gender" runat="server">
+        <asp:ListItem Text="Male" Value="male" runat="server"/>
+        <asp:ListItem Text="Female" Value="female" runat="server"/>
+        <asp:ListItem Text="Other" Value="other" runat="server"/>
+      </asp:RadioButtonList>
+    </div>
+    <div class="yearSelect">
+    <label>Year of birth:
+      <asp:DropDownList ID="selectedYear" runat="server">
+        <asp:ListItem Text="Select Year of Birth" Value="" />
+        <asp:ListItem Text="2024" Value="2024" />
+        <asp:ListItem Text="2023" Value="2023" />
+        <asp:ListItem Text="2022" Value="2022" />
+        <asp:ListItem Text="2021" Value="2021" />
+        <asp:ListItem Text="2020" Value="2020" />
+        <asp:ListItem Text="2019" Value="2019" />
+        <asp:ListItem Text="2018" Value="2018" />
+        <asp:ListItem Text="2017" Value="2017" />
+        <asp:ListItem Text="2016" Value="2016" />
+        <asp:ListItem Text="2015" Value="2015" />
+        <asp:ListItem Text="2014" Value="2014" />
+        <asp:ListItem Text="2013" Value="2013" />
+        <asp:ListItem Text="2012" Value="2012" />
+        <asp:ListItem Text="2011" Value="2011" />
+        <asp:ListItem Text="2010" Value="2010" />
+        <asp:ListItem Text="2009" Value="2009" />
+        <asp:ListItem Text="2008" Value="2008" />
+        <asp:ListItem Text="2007" Value="2007" />
+        <asp:ListItem Text="2006" Value="2006" />
+        <asp:ListItem Text="2005" Value="2005" />
+        <asp:ListItem Text="2004" Value="2004" />
+        <asp:ListItem Text="2003" Value="2003" />
+        <asp:ListItem Text="2002" Value="2002" />
+        <asp:ListItem Text="2001" Value="2001" />
+        <asp:ListItem Text="2000" Value="2000" />
+        <asp:ListItem Text="1999" Value="1999" />
+        <asp:ListItem Text="1998" Value="1998" />
+        <asp:ListItem Text="1997" Value="1997" />
+        <asp:ListItem Text="1996" Value="1996" />
+        <asp:ListItem Text="1995" Value="1995" />
+        <asp:ListItem Text="1994" Value="1994" />
+        <asp:ListItem Text="1993" Value="1993" />
+        <asp:ListItem Text="1992" Value="1992" />
+        <asp:ListItem Text="1991" Value="1991" />
+        <asp:ListItem Text="1990" Value="1990" />
+        <asp:ListItem Text="1989" Value="1989" />
+        <asp:ListItem Text="1988" Value="1988" />
+        <asp:ListItem Text="1987" Value="1987" />
+        <asp:ListItem Text="1986" Value="1986" />
+        <asp:ListItem Text="1985" Value="1985" />
+        <asp:ListItem Text="1984" Value="1984" />
+        <asp:ListItem Text="1983" Value="1983" />
+        <asp:ListItem Text="1982" Value="1982" />
+        <asp:ListItem Text="1981" Value="1981" />
+        <asp:ListItem Text="1980" Value="1980" />
+      </asp:DropDownList>
+    </label>
+
+    </div>
+
+    <div class="phone-group">
+      <div class="prefix">
+        <label>Phone Number Prefix:</label>
+        <asp:DropDownList ID="phoneNumberPrefix" runat="server">
+          <asp:ListItem Text="+1" Value="+1" />
+          <asp:ListItem Text="+44" Value="+44" />
+          <asp:ListItem Text="+91" Value="+91" />
+          <asp:ListItem Text="+972" Value="+972" />
+        </asp:DropDownList>
+      </div>
+      <div class="number">
+        <label for="phoneNumber">Phone Number:</label>
+        <asp:TextBox ID="phoneNumber" runat="server"></asp:TextBox>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+    </div>
+    <div>
+      <asp:Button ID="registerButton" runat="server" Text="Register" OnClick="ValidateRegistration" />    </div>
+  </form>
+  </div>
+
+  <!--We want the script to load last-->
+  <script src="Login.js"></script>
+</asp:Content>
